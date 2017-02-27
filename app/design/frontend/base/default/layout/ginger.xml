@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <checkout_onepage_success translate="label">
+        <reference name="checkout.success">
+            <action method="setTemplate"><template>ginger/success.phtml</template></action>
+        </reference>
+    </checkout_onepage_success>
+</layout>

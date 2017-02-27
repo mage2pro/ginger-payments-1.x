@@ -1,0 +1,29 @@
+<?php
+/**
+ *   ╲          ╱
+ * ╭──────────────╮  COPYRIGHT (C) 2016 GINGER PAYMENTS B.V.
+ * │╭──╮      ╭──╮│
+ * ││//│      │//││  This software is released under the terms of the
+ * │╰──╯      ╰──╯│  GNU General Public License version 3 or later.
+ * ╰──────────────╯
+ *   ╭──────────╮    https://www.gnu.org/licenses/gpl-3.0.txt
+ *   │ () () () │
+ *
+ * @category    Ginger
+ * @package     Ginger_Ginger
+ * @author      Ginger Payments B.V. (info@gingerpayments.com)
+ * @version     v0.0.4
+ * @copyright   Copyright (c) 2016 Ginger Payments B.V. (https://www.gingerpayments.com)
+ * @license     https://www.gnu.org/licenses/gpl-3.0.txt
+ *
+ **/
+?>
+<p><?php echo $this->escapeHtml($this->getMethod()->getTitle()) ?></p>
+<?php if ($this->getInfo()->getAdditionalData()): ?>
+    <?php if ($this->getMailingAddress()): ?>
+        <p><strong><?php echo Mage::helper('payment')->__('Payment instructions:') ?></strong></p>
+        <address class="checkmo-mailing-address">
+            <?php echo nl2br($this->escapeHtml($this->getMailingAddress())) ?>
+        </address>
+    <?php endif; ?>
+<?php endif; ?>

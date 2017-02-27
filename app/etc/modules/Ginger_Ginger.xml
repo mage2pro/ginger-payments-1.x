@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Ginger_Ginger>
+			<active>true</active>
+			<codePool>community</codePool>
+			<depends>
+				<Mage_Payment />
+				<Mage_Checkout />
+			</depends>
+			<version>0.0.4</version>
+		</Ginger_Ginger>
+	</modules>
+</config>

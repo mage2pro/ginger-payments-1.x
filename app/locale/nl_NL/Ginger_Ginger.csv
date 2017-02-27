@@ -1,0 +1,25 @@
+"Ginger Payments - Settings","Ginger Payments - Instellingen"
+"API Key","API Key"
+"Ginger - iDEAL","Ginger - iDEAL"
+"Ginger - Banktransfer","Ginger - Bankoverboeking"
+"Ginger - SOFORT","Ginger - SOFORT"
+"Ginger - Bancontact","Ginger - Bancontact"
+"Enabled","Enabled"
+"Description","Omschrijving"
+
+"Choose your bank:","Kies uw bank:"
+
+"Payment is pending","Betaling in verwerking"
+"Payment is completed","Betaling afgerond"
+"Payment is cancelled","Betaling is geannuleerd"
+"Payment failed with an error","Betaling mislukt door een fout"
+"Amounts don't match. Possible fraud","Bedragen komen niet overheen, mogelijk fraude"
+
+"Your order has been received.", "Uw bestelling is ontvangen."
+"Thank you for your purchase!","Dank voor uw aankoop!"
+"Payment instructions:","Betaal instructies:"
+"Please use the following data to make the banktransfer", "Gebuikt u de volgende gegevens voor de overboeking"
+"Ginger Payments processes the payments for", "Ginger Payments verwerkt de betaling voor"
+"(!) Don't forget to use the reference in your payment. Without the reference the processing of your payment can take more time!", "(!) Vergeet u niet het juiste betaalkenmerk te vermelden. Zonder het juiste betaalkenmerk kan de verwerking van uw betaling meer tijd kosten."
+
+"GINGER_PAYMENT_DETAILS","Bedrag: %AMOUNT%\nKenmerk: %REFERENCE%\nRekeningnummer: 168706814\nIBAN: NL65RABO0168706814\nBIC: RABONL2U\nRekeninghouder: St. Derdengelden Ginger Payments\nWoonplaats: Utrecht"

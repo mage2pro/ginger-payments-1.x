@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+
+<!--
+*   ╲          ╱
+* ╭──────────────╮  COPYRIGHT (C) 2016 GINGER PAYMENTS B.V.
+* │╭──╮      ╭──╮│
+* ││//│      │//││  This software is released under the terms of the
+* │╰──╯      ╰──╯│  GNU General Public License version 3 or later.
+* ╰──────────────╯
+*   ╭──────────╮    https://www.gnu.org/licenses/gpl-3.0.txt
+*   │ () () () │
+*
+* @category    Ginger
+* @package     Ginger_Ginger
+* @author      Ginger Payments B.V. (info@gingerpayments.com)
+* @version     v0.0.4
+* @copyright   Copyright (c) 2016 Ginger Payments B.V. (https://www.gingerpayments.com)
+* @license     https://www.gnu.org/licenses/gpl-3.0.txt
+*
+-->
+<config>
+    <modules>
+        <Ginger_Ginger>
+            <version>0.0.4</version>
+        </Ginger_Ginger>
+    </modules>
+
+    <global>
+        <models>
+            <ginger>
+                <class>Ginger_Ginger_Model</class>
+            </ginger>
+        </models>
+        <blocks>
+            <ginger>
+                <class>Ginger_Ginger_Block</class>
+            </ginger>
+            <payment>
+                <class>Ginger_Ginger_Block</class>
+                <class>Mage_Payment_Block</class>
+            </payment>
+        </blocks>
+        <helpers>
+            <ginger>
+                <class>Ginger_Ginger_Helper</class>
+            </ginger>
+        </helpers>
+        <payment>
+            <groups>
+                <ginger>ginger</ginger>
+            </groups>
+        </payment>
+        <resources>
+            <ginger_setup>
+                <setup>
+                    <module>Ginger_Ginger</module>
+                    <class>Mage_Catalog_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ginger_setup>
+            <ginger_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ginger_write>
+            <ginger_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ginger_read>
+        </resources>
+        <fieldsets>
+            <sales_convert_quote>
+                <ginger_order_id>
+                    <to_order>*</to_order>
+                </ginger_order_id>
+                <ginger_banktransfer_reference>
+                    <to_order>*</to_order>
+                </ginger_banktransfer_reference>
+                <ginger_ideal_issuer_id>
+                    <to_order>*</to_order>
+                </ginger_ideal_issuer_id>
+            </sales_convert_quote>
+            <sales_convert_order>
+                <ginger_order_id>
+                    <to_quote>*</to_quote>
+                </ginger_order_id>
+                <ginger_banktransfer_reference>
+                    <to_quote>*</to_quote>
+                </ginger_banktransfer_reference>
+                <ginger_ideal_issuer_id>
+                    <to_quote>*</to_quote>
+                </ginger_ideal_issuer_id>
+            </sales_convert_order>
+        </fieldsets>
+    </global>
+
+    <frontend>
+        <routers>
+            <ginger>
+                <use>standard</use>
+                <args>
+                    <module>Ginger_Ginger</module>
+                    <frontName>ginger</frontName>
+                </args>
+            </ginger>
+        </routers>
+        <layout>
+            <updates>
+                <ginger>
+                    <file>ginger.xml</file>
+                </ginger>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Ginger_Ginger>
+                    <files>
+                        <default>Ginger_Ginger.csv</default>
+                    </files>
+                </Ginger_Ginger>
+            </modules>
+        </translate>
+        <events>
+            <sales_convert_quote_payment_to_order_payment>
+                <observers>
+                    <ginger_observer>
+                        <type>singleton</type>
+                        <class>ginger/observer</class>
+                        <method>convertPayment</method>
+                    </ginger_observer>
+                </observers>
+            </sales_convert_quote_payment_to_order_payment>
+        </events>
+    </frontend>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <ginger>
+                    <file>ginger.xml</file>
+                </ginger>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Ginger_Ginger>
+                    <files>
+                        <default>Ginger_Ginger.csv</default>
+                    </files>
+                </Ginger_Ginger>
+            </modules>
+        </translate>
+    </adminhtml>
+
+    <default>
+        <payment>
+            <ginger_ideal>
+                <group>ginger</group>
+                <active>1</active>
+                <model>ginger/ideal</model>
+                <title>iDEAL</title>
+                <currency>EUR</currency>
+                <allowspecific>1</allowspecific>
+                <specificcountry>NL</specificcountry>
+                <sort_order>101</sort_order>
+            </ginger_ideal>
+            <ginger_banktransfer>
+                <group>ginger</group>
+                <active>1</active>
+                <model>ginger/banktransfer</model>
+                <title>Overboeking</title>
+                <currency>EUR</currency>
+                <allowspecific>1</allowspecific>
+                <specificcountry>NL</specificcountry>
+                <sort_order>102</sort_order>
+                <mailing_address><![CDATA[Amount: %AMOUNT%
+Reference: %REFERENCE%
+Accountnumber: 168706814
+IBAN: NL65RABO0168706814
+BIC: RABONL2U
+Account holder: St. Derdengelden Ginger Payments
+City: Utrecht]]></mailing_address>
+            </ginger_banktransfer>
+            <ginger_sofort>
+                <group>ginger</group>
+                <active>1</active>
+                <model>ginger/sofort</model>
+                <title>SOFORT</title>
+                <currency>EUR</currency>
+                <allowspecific>1</allowspecific>
+                <specificcountry>NL</specificcountry>
+                <sort_order>103</sort_order>
+            </ginger_sofort>
+            <ginger_bancontact>
+                <group>ginger</group>
+                <active>1</active>
+                <model>ginger/bancontact</model>
+                <title>Bancontact</title>
+                <currency>EUR</currency>
+                <allowspecific>1</allowspecific>
+                <specificcountry>NL</specificcountry>
+                <sort_order>104</sort_order>
+            </ginger_bancontact>
+            <ginger_creditcard>
+                <group>ginger</group>
+                <active>1</active>
+                <model>ginger/creditcard</model>
+                <title>Credit Card</title>
+                <currency>EUR</currency>
+                <allowspecific>1</allowspecific>
+                <specificcountry>NL</specificcountry>
+                <sort_order>105</sort_order>
+            </ginger_creditcard>
+        </payment>
+    </default>
+</config>

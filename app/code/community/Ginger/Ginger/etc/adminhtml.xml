@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<!--
+*   ╲          ╱
+* ╭──────────────╮  COPYRIGHT (C) 2016 GINGER PAYMENTS B.V.
+* │╭──╮      ╭──╮│
+* ││//│      │//││  This software is released under the terms of the
+* │╰──╯      ╰──╯│  GNU General Public License version 3 or later.
+* ╰──────────────╯
+*   ╭──────────╮    https://www.gnu.org/licenses/gpl-3.0.txt
+*   │ () () () │
+*
+* @category    Ginger
+* @package     Ginger_Ginger
+* @author      Ginger Payments B.V. (info@gingerpayments.com)
+* @version     v0.0.4
+* @copyright   Copyright (c) 2016 Ginger Payments B.V. (https://www.gingerpayments.com)
+* @license     https://www.gnu.org/licenses/gpl-3.0.txt
+*
+-->
+<config>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <ginger>
+                                        <title>Ginger Payment Method(s)</title>
+                                    </ginger>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,25 @@
+"Ginger Payments - Settings","Ginger Payments - Settings"
+"API Key","API Key"
+"Ginger - iDEAL","Ginger - iDEAL"
+"Ginger - Banktransfer","Ginger - Banktransfer"
+"Ginger - SOFORT","Ginger - SOFORT"
+"Ginger - Bancontact","Ginger - Bancontact"
+"Enabled","Enabled"
+"Description","Description"
+
+"Choose your bank:","Choose your bank:"
+
+"Payment is pending","Payment is pending"
+"Payment is completed","Payment is completed"
+"Payment is cancelled","Payment is cancelled"
+"Payment failed with an error","Payment failed with an error"
+"Amounts don't match. Possible fraud","Amounts don't match. Possible fraud"
+
+"Your order has been received.", "Your order has been received."
+"Thank you for your purchase!","Thank you for your purchase!"
+"Payment instructions:","Payment instructions:"
+"Please use the following data to make the banktransfer", "Please use the following data to make the banktransfer"
+"Ginger Payments processes the payments for", "Ginger Payments processes the payments for"
+"(!) Don't forget to use the reference in your payment. Without the reference the processing of your payment can take more time!", "(!) Don\'t forget to use the reference in your payment. Without the reference the processing of your payment can take more time!"
+
+"GINGER_PAYMENT_DETAILS","Amount: %AMOUNT%\nReference: %REFERENCE%\nAccountnumber: 168706814\nIBAN: NL65RABO0168706814\nBIC: RABONL2U\nAccount holder: St. Derdengelden Ginger Payments\nCity: Utrecht"

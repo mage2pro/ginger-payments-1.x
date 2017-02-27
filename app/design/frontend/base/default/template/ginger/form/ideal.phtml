@@ -1,0 +1,40 @@
+<?php
+/**
+ *   ╲          ╱
+ * ╭──────────────╮  COPYRIGHT (C) 2016 GINGER PAYMENTS B.V.
+ * │╭──╮      ╭──╮│
+ * ││//│      │//││  This software is released under the terms of the
+ * │╰──╯      ╰──╯│  GNU General Public License version 3 or later.
+ * ╰──────────────╯
+ *   ╭──────────╮    https://www.gnu.org/licenses/gpl-3.0.txt
+ *   │ () () () │
+ *
+ * @category    Ginger
+ * @package     Ginger_Ginger
+ * @author      Ginger Payments B.V. (info@gingerpayments.com)
+ * @version     v0.0.4
+ * @copyright   Copyright (c) 2016 Ginger Payments B.V. (https://www.gingerpayments.com)
+ * @license     https://www.gnu.org/licenses/gpl-3.0.txt
+ *
+ **/
+
+$_code = $this->getMethodCode();
+$_issuers = Mage::Helper('ginger/ideal')->getIssuers();
+?>
+
+<ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display:none;">
+    <li>
+        <label for="<?php echo $_code ?>_issuer_id"
+               class="required"><em>*</em><?php echo $this->__('Choose your bank:') ?></label>
+        <span class="input-box">
+			<select name="issuer_id" class="required-entry input-text" id="<?php echo $_code; ?>_issuer_id"
+                    title="<?php echo $_code; ?>_issuer_id">
+				<?php foreach ($_issuers as $issuer): ?>
+                    <?php if (isset($issuer['id']) && isset($issuer['id'])): ?>
+                        <option value="<?php echo $issuer['id'] ?>"><?php echo $issuer['name'] ?></option>
+                    <?php endif ?>
+                <?php endforeach; ?>
+			</select>
+		</span>
+    </li>
+</ul>

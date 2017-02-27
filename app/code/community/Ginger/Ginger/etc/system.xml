@@ -1,0 +1,442 @@
+<?xml version="1.0"?>
+
+<!--
+*   ╲          ╱
+* ╭──────────────╮  COPYRIGHT (C) 2016 GINGER PAYMENTS B.V.
+* │╭──╮      ╭──╮│
+* ││//│      │//││  This software is released under the terms of the
+* │╰──╯      ╰──╯│  GNU General Public License version 3 or later.
+* ╰──────────────╯
+*   ╭──────────╮    https://www.gnu.org/licenses/gpl-3.0.txt
+*   │ () () () │
+*
+* @category    Ginger
+* @package     Ginger_Ginger
+* @author      Ginger Payments B.V. (info@gingerpayments.com)
+* @version     v0.0.4
+* @copyright   Copyright (c) 2016 Ginger Payments B.V. (https://www.gingerpayments.com)
+* @license     https://www.gnu.org/licenses/gpl-3.0.txt
+*
+-->
+<config>
+    <sections>
+        <payment>
+            <groups>
+                <ginger translate="label comment">
+                    <label>Ginger Payments - Settings</label>
+                    <expanded>1</expanded>
+                    <sort_order>116</sort_order>
+                    <frontend_type>text</frontend_type>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <version>
+                            <label>v0.0.3</label>
+                            <sort_order>1</sort_order>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <frontend_type>label</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </version>
+                        <apikey translate="label">
+                            <label>API Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry validate-alphanum</validate>
+                        </apikey>
+                    </fields>
+                </ginger>
+                <ginger_ideal translate="label comment" module="ginger">
+                    <label>Ginger - iDEAL</label>
+                    <expanded>1</expanded>
+                    <sort_order>117</sort_order>
+                    <frontend_type>text</frontend_type>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <description translate="label">
+                            <label>Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry</validate>
+                        </description>
+                        <specificcountry translate="label">
+                            <label>Payment from Specific Countries</label>
+                            <sort_order>300</sort_order>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <can_be_empty>1</can_be_empty>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <send_order_mail translate="label">
+                            <label>Send order mail</label>
+                            <sort_order>400</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </send_order_mail>
+                        <generate_invoice_upon_completion translate="label">
+                            <label>Generate invoice upon succesfull transaction</label>
+                            <sort_order>500</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </generate_invoice_upon_completion>
+                        <send_invoice_mail translate="label">
+                            <label>Send invoice mail</label>
+                            <sort_order>600</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <generate_invoice_upon_completion>1</generate_invoice_upon_completion>
+                            </depends>
+                        </send_invoice_mail>
+                        <sort_order translate="label">
+                            <label>Sort order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>700</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sort_order>
+                    </fields>
+                </ginger_ideal>
+                <ginger_banktransfer translate="label comment" module="ginger">
+                    <label>Ginger - Banktransfer</label>
+                    <expanded>1</expanded>
+                    <sort_order>118</sort_order>
+                    <frontend_type>text</frontend_type>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <description translate="label">
+                            <label>Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry</validate>
+                        </description>
+                        <specificcountry translate="label">
+                            <label>Payment from Specific Countries</label>
+                            <sort_order>300</sort_order>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <can_be_empty>1</can_be_empty>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <send_order_mail translate="label">
+                            <label>Send order mail</label>
+                            <sort_order>400</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </send_order_mail>
+                        <generate_invoice_upon_completion translate="label">
+                            <label>Generate invoice upon succesfull transaction</label>
+                            <sort_order>500</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </generate_invoice_upon_completion>
+                        <send_invoice_mail translate="label">
+                            <label>Send invoice mail</label>
+                            <sort_order>600</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <generate_invoice_upon_completion>1</generate_invoice_upon_completion>
+                            </depends>
+                        </send_invoice_mail>
+                        <sort_order translate="label">
+                            <label>Sort order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>700</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sort_order>
+                    </fields>
+                </ginger_banktransfer>
+                <ginger_sofort translate="label comment" module="ginger">
+                    <label>Ginger - SOFORT</label>
+                    <expanded>1</expanded>
+                    <sort_order>119</sort_order>
+                    <frontend_type>text</frontend_type>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <description translate="label">
+                            <label>Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry</validate>
+                        </description>
+                        <specificcountry translate="label">
+                            <label>Payment from Specific Countries</label>
+                            <sort_order>300</sort_order>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <can_be_empty>1</can_be_empty>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <send_order_mail translate="label">
+                            <label>Send order mail</label>
+                            <sort_order>400</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </send_order_mail>
+                        <generate_invoice_upon_completion translate="label">
+                            <label>Generate invoice upon succesfull transaction</label>
+                            <sort_order>500</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </generate_invoice_upon_completion>
+                        <send_invoice_mail translate="label">
+                            <label>Send invoice mail</label>
+                            <sort_order>600</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <generate_invoice_upon_completion>1</generate_invoice_upon_completion>
+                            </depends>
+                        </send_invoice_mail>
+                        <sort_order translate="label">
+                            <label>Sort order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>700</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sort_order>
+                    </fields>
+                </ginger_sofort>
+                <ginger_bancontact translate="label comment" module="ginger">
+                    <label>Ginger - Bancontact</label>
+                    <expanded>1</expanded>
+                    <sort_order>120</sort_order>
+                    <frontend_type>text</frontend_type>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <description translate="label">
+                            <label>Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry</validate>
+                        </description>
+                        <specificcountry translate="label">
+                            <label>Payment from Specific Countries</label>
+                            <sort_order>300</sort_order>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <can_be_empty>1</can_be_empty>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <send_order_mail translate="label">
+                            <label>Send order mail</label>
+                            <sort_order>400</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </send_order_mail>
+                        <generate_invoice_upon_completion translate="label">
+                            <label>Generate invoice upon succesfull transaction</label>
+                            <sort_order>500</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </generate_invoice_upon_completion>
+                        <send_invoice_mail translate="label">
+                            <label>Send invoice mail</label>
+                            <sort_order>600</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <generate_invoice_upon_completion>1</generate_invoice_upon_completion>
+                            </depends>
+                        </send_invoice_mail>
+                        <sort_order translate="label">
+                            <label>Sort order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>700</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sort_order>
+                    </fields>
+                </ginger_bancontact>
+                <ginger_creditcard translate="label comment" module="ginger">
+                    <label>Ginger - Credit Card</label>
+                    <expanded>1</expanded>
+                    <sort_order>120</sort_order>
+                    <frontend_type>text</frontend_type>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <description translate="label">
+                            <label>Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry</validate>
+                        </description>
+                        <specificcountry translate="label">
+                            <label>Payment from Specific Countries</label>
+                            <sort_order>300</sort_order>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <can_be_empty>1</can_be_empty>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <send_order_mail translate="label">
+                            <label>Send order mail</label>
+                            <sort_order>400</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </send_order_mail>
+                        <generate_invoice_upon_completion translate="label">
+                            <label>Generate invoice upon succesfull transaction</label>
+                            <sort_order>500</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </generate_invoice_upon_completion>
+                        <send_invoice_mail translate="label">
+                            <label>Send invoice mail</label>
+                            <sort_order>600</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <generate_invoice_upon_completion>1</generate_invoice_upon_completion>
+                            </depends>
+                        </send_invoice_mail>
+                        <sort_order translate="label">
+                            <label>Sort order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>700</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sort_order>
+                    </fields>
+                </ginger_creditcard>
+            </groups>
+        </payment>
+    </sections>
+</config>
